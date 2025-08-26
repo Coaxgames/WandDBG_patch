@@ -620,7 +620,7 @@ init_debugger = function()
         EntityLoad                               = function(entity_id) end
         EntityGetAllChildren                     = function(entity_id) if(entity_id) then return entity_id.children end end
         EntityGetName                            = function(entity_id) if(entity_id) then return entity_id.name end end
-        EntityHasTag                             = function(entity_id, tag) if(entity_id) then return string.find(","..(entity_id.tags or ""), ","..tag..",") end end
+        EntityHasTag                             = function(entity_id, tag) if(type(entity_id) == "table") then return string.find(","..(entity_id.tags or ""), ","..tag..",") end end
         ComponentGetValue2                       = function(component_id, variable_name) return component_id[variable_name] end
         ComponentSetValue2                       = function(component_id, variable_name, value) component_id[variable_name] = value end
 
